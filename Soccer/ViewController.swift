@@ -36,9 +36,9 @@ class ViewController: UIViewController {
         pairTeams()
     }
     
-    //if number of games = 9, and there are 5 teams, each team can play at least once, and the remaining 4 games will be played randomly.
+    // if number of games = 9, and there are 5 teams, each team can play at least once,
+    // and the remaining 4 games will be played randomly.
     func createArrays(numberOfGames: Int, numberOfTeams: Int) {
-        
         let minimumNumberOfGames = Int(numberOfGames / numberOfTeams)
         let remainder = numberOfGames % numberOfTeams
         
@@ -58,12 +58,12 @@ class ViewController: UIViewController {
     
     func pairTeams() {
         hostTeams.shuffle()
+        
         for index in 0..<hostTeams.count {
             if hostTeams[index] == guestTeams[index] {
                 hostTeams.shuffle()
             }
         }
-        
         
         print(hostTeams)
         print(guestTeams)
