@@ -34,8 +34,7 @@ class ViewController: UIViewController {
         pairTeams()
     }
     
-    // if number of games = 9, and there are 5 teams, each team can play at least once,
-    // and the remaining 4 games will be played randomly.
+    
     func createArrays(numberOfGames: Int, numberOfTeams: Int) {
         let minimumNumberOfGames = Int(numberOfGames / numberOfTeams)
         let remainder = numberOfGames % numberOfTeams
@@ -51,20 +50,12 @@ class ViewController: UIViewController {
                 hostTeams.append(index)
             }
         }
-
         
-        
-        //        guestTeams = hostTeams.shift(withDistance: 1)
-        //        var tempArray = Array(guestTeams.prefix(upTo: numberOfTeams))
-        //        if numberOfTeams >= 4 && remainder > 2 {
-        //            guestTeams = hostTeams.shift(withDistance: 2)
-        //            tempArray.append(contentsOf: Array(guestTeams.suffix(from: numberOfTeams)))
-        //        } else  {
-        //            tempArray.append(contentsOf: Array(guestTeams.suffix(from: numberOfTeams)))
-        //        }
-        //        guestTeams = tempArray
-        
-        
+        guestTeams = hostTeams.shift(withDistance: 1)
+        var tempArray = Array(guestTeams.prefix(upTo: numberOfTeams))
+        guestTeams = hostTeams.shift(withDistance: 2)
+        tempArray.append(contentsOf: Array(guestTeams.suffix(from: numberOfTeams)))
+        guestTeams = tempArray
     }
     
     func pairTeams() {
@@ -74,8 +65,6 @@ class ViewController: UIViewController {
         print("")
         
     }
-    
-    
 }
 
 
