@@ -17,8 +17,6 @@ class ViewController: UIViewController {
     
     var hostTeams = [Int]()
     var guestTeams = [Int]()
-    var games = [Int : Int]()
-    
     
     @IBAction func didTapLetsPlay() {
         guard
