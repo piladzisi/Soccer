@@ -19,10 +19,6 @@ class ViewController: UIViewController {
     var guestTeams = [Int]()
     var games = [Int : Int]()
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
-
-    }
     
     @IBAction func didTapLetsPlay() {
         guard
@@ -32,14 +28,16 @@ class ViewController: UIViewController {
         
         numberOfGames = Int(games)!
         numberOfTeams = Int(teams)!
+        
         hostTeams.removeAll()
         guestTeams.removeAll()
         
-        randomizeTeams(numberOfGames: numberOfGames, numberOfTeams: numberOfTeams)
+        createArrays(numberOfGames: numberOfGames, numberOfTeams: numberOfTeams)
         pairTeams()
     }
     
-    func randomizeTeams(numberOfGames: Int, numberOfTeams: Int) {
+    //if number of games = 9, while there are 5 teams, each team can play at least once, and the remaining 4 games will be played randomly.
+    func createArrays(numberOfGames: Int, numberOfTeams: Int) {
         
         let minimumNumberOfGames = Int(numberOfGames / numberOfTeams)
         let remainder = numberOfGames % numberOfTeams
